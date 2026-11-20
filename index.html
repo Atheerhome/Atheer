@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>أثير | Atheer — لبس كاجول وعبايات</title>
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--petrol:#5A3E3A;--petrol2:#3F2B28;--pearl:#FBF4EF;--mist:#F0DDD5;--brass:#C9A27E;--ink:#3A2A27;--white:#fff}
+*{box-sizing:border-box;margin:0}
+body{font-family:Tajawal,Tahoma,sans-serif;background:var(--pearl);color:var(--ink);line-height:1.7}
+h1,h2,.logo{font-family:'Reem Kufi',Tajawal,serif;font-weight:700}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
+header{position:sticky;top:0;z-index:20;background:var(--pearl);color:var(--petrol);border-bottom:1px solid var(--mist);display:flex;align-items:center;justify-content:space-between;padding:.7rem 1.2rem}
+.logo{font-size:1.7rem;letter-spacing:.02em}
+.logo small{font-family:Tajawal;font-size:.8rem;color:#9A6F66;margin-inline-start:.5rem}
+.cartbtn{background:none;border:1.5px solid var(--petrol);color:var(--petrol);border-radius:99px;padding:.35rem 1rem}
+.cartbtn b{background:var(--petrol);color:var(--pearl);border-radius:99px;padding:0 .5rem;margin-inline-start:.4rem}
+.hero{background:linear-gradient(160deg,#F7E6DD,#EBCFC5);color:var(--petrol);padding:4rem 1.2rem 5rem;text-align:center;position:relative;overflow:hidden}
+.hero .word{font-family:'Reem Kufi',serif;font-size:clamp(4.5rem,18vw,7.5rem);line-height:1.1;color:var(--petrol)}.hero .word svg{display:block;margin:0 auto .4rem}.hero .latin{letter-spacing:.55em;color:var(--petrol);font-size:1rem;margin-bottom:1.4rem;padding-inline-start:.55em}
+.hero p{max-width:34rem;margin:1rem auto 1.6rem;font-size:1.15rem}
+.hero .arc{position:absolute;inset-inline:-10%;bottom:-60px;height:120px;background:var(--pearl);border-radius:50% 50% 0 0}
+.btn{display:inline-block;background:var(--brass);color:var(--petrol2);border:0;border-radius:99px;padding:.7rem 1.8rem;font-weight:700}
+.btn:hover{background:#DCC59F}
+section{padding:2.5rem 1.2rem;max-width:1100px;margin:auto}
+h2{font-size:1.8rem;margin-bottom:1rem;color:var(--petrol)}
+.tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.tabs button{border:1.5px solid var(--petrol);background:none;color:var(--petrol);border-radius:99px;padding:.3rem 1.1rem}
+.tabs button.on{background:var(--petrol);color:var(--pearl)}
+.tabs button:disabled{opacity:.45;cursor:not-allowed;border-style:dashed}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.2rem}
+.card{background:var(--white);border-radius:6px 28px 6px 28px;overflow:hidden;display:flex;flex-direction:column}
+.ph{aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;font-family:'Reem Kufi';font-size:2.4rem;color:rgba(255,255,255,.9)}
+.card .in{padding:.9rem 1rem 1rem;display:flex;flex-direction:column;gap:.4rem;flex:1}
+.card h3{font-size:1.05rem}
+.price{font-weight:700;color:var(--petrol)}
+.card select{padding:.35rem;border:1px solid var(--mist);border-radius:8px;font:inherit;background:var(--pearl)}
+.card .btn{margin-top:auto;text-align:center}
+.promise{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;background:var(--mist);border-radius:28px 6px 28px 6px;padding:1.5rem}
+.promise h3{color:var(--petrol);font-size:1.05rem}
+footer{background:#EAD5CC;color:var(--petrol);text-align:center;padding:2rem 1rem;font-size:.95rem}
+footer a{color:var(--petrol);text-decoration:underline;margin:0 .6rem}
+.drawer{position:fixed;inset:0;background:rgba(63,43,40,.5);display:none;z-index:30}
+.drawer.open{display:block}
+.panel{position:absolute;inset-block:0;inset-inline-start:0;width:min(430px,100%);background:var(--pearl);padding:1.2rem;overflow:auto}
+.panel h2{font-size:1.4rem}
+.row{display:flex;justify-content:space-between;align-items:center;gap:.5rem;padding:.55rem 0;border-bottom:1px solid var(--mist);font-size:.95rem}
+.row button{border:0;background:none;color:#9b3d3d}
+.tot{padding:.6rem 0;font-weight:700;display:flex;justify-content:space-between}
+.note{font-size:.85rem;color:#7a5f5a}
+form label{display:block;margin-top:.7rem;font-size:.92rem}
+form input,form textarea{width:100%;padding:.55rem;border:1px solid #e0cdc5;border-radius:8px;font:inherit;background:#fff}
+.msg{margin-top:.8rem;padding:.7rem;border-radius:8px;display:none}
+.msg.ok{display:block;background:#d9ecd9}.msg.err{display:block;background:#f3d9d9}
+.close{float:left;border:0;background:none;font-size:1.6rem}
+@media (prefers-reduced-motion:no-preference){.hero .word{animation:rise 1s ease-out both}@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}}
+#trk label{display:block;margin-top:.7rem;font-size:.92rem}
+#trk input{width:100%;padding:.55rem;border:1px solid #e0cdc5;border-radius:8px;font:inherit;background:#fff}
+.steps{list-style:none;padding:0;margin:.8rem 0}
+.steps li{padding:.4rem .8rem;border-inline-start:4px solid var(--mist);margin-bottom:.3rem;color:#7a5f5a}
+.steps li.done{border-color:var(--brass);color:var(--petrol)}
+.steps li.now{border-color:var(--petrol);color:var(--petrol);font-weight:700;background:var(--mist)}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="#" style="display:flex;align-items:center;gap:.6rem"><svg viewBox="0 0 68 70" width="35" height="36" aria-hidden="true" fill="none" stroke-width="3" stroke-linecap="round"><path d="M8 62V34a20 26 0 0 1 40 0V62" stroke="#5A3E3A"/><path d="M20 62V34a20 26 0 0 1 40 0V62" stroke="#B5706B"/><circle cx="34" cy="26" r="3.4" fill="#C9A27E" stroke="none"/></svg><span>أثير<small>Atheer</small></span></a>
+  <button class="cartbtn" id="openCart" aria-label="فتح السلة">السلة<b id="count">0</b></button>
+</header>
+
+<div class="hero">
+  <div class="word" role="img" aria-label="أثير"><svg viewBox="0 0 68 70" width="120" height="124" aria-hidden="true" fill="none" stroke-width="3" stroke-linecap="round"><path d="M8 62V34a20 26 0 0 1 40 0V62" stroke="#5A3E3A"/><path d="M20 62V34a20 26 0 0 1 40 0V62" stroke="#B5706B"/><circle cx="34" cy="26" r="3.4" fill="#C9A27E" stroke="none"/></svg><div>أثير</div></div><div class="latin">ATHEER</div>
+  <h1 style="font-size:1.5rem">لبس كاجول وعبايات بذوق راقي</h1>
+  <p>قطع عملية وشيك ومحتشمة، مختارة بعناية لتناسب يومك كله.</p>
+  <a class="btn" href="#shop">تسوقي دلوقتي</a>
+  <div class="arc"></div>
+</div>
+
+<section id="shop">
+  <h2>القطع المتاحة</h2>
+  <div class="tabs" id="tabs">
+    <button class="on" data-c="all">الكل</button>
+    <button data-c="casual">كاجول</button>
+    <button data-c="abaya">عبايات</button>
+    <button disabled title="قريبًا">رجالي — قريبًا</button>
+  </div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section>
+  <div class="promise">
+    <div><h3>الدفع عند الاستلام</h3><p>اطلبي وادفعي لما الطلب يوصلك.</p></div>
+    <div><h3>شحن لكل المحافظات</h3><p>توصيل لحد باب البيت في مصر.</p></div>
+    <div><h3>استبدال سهل</h3><p>لو المقاس مش مظبوط نبدّله لك.</p></div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo" style="font-size:1.4rem;color:var(--petrol);display:flex;justify-content:center;align-items:center;gap:.5rem"><svg viewBox="0 0 68 70" width="32" height="33" aria-hidden="true" fill="none" stroke-width="3" stroke-linecap="round"><path d="M8 62V34a20 26 0 0 1 40 0V62" stroke="#5A3E3A"/><path d="M20 62V34a20 26 0 0 1 40 0V62" stroke="#B5706B"/><circle cx="34" cy="26" r="3.4" fill="#C9A27E" stroke="none"/></svg><span>أثير</span></div>
+  <p style="margin:.6rem 0"><a href="#" id="trkLink">تتبّعي طلبك</a></p><p style="margin:.4rem 0 .8rem">تابعينا على</p>
+  <a href="#" id="ig">إنستجرام</a><a href="#" id="tt">تيك توك</a><a href="#" id="fb">فيسبوك</a>
+</footer>
+
+<div class="drawer" id="drawer">
+  <div class="panel" role="dialog" aria-label="السلة">
+    <button class="close" id="closeCart" aria-label="إغلاق">×</button>
+    <h2>سلتك</h2>
+    <div id="items"></div>
+    <div class="tot"><span>المنتجات</span><span id="sub">0</span></div>
+    <div class="tot"><span>الشحن</span><span id="ship">0</span></div>
+    <div class="tot" style="font-size:1.1rem"><span>الإجمالي</span><span id="total">0</span></div>
+    <p class="note" id="freeNote"></p>
+    <form id="order">
+      <label>الاسم بالكامل<input name="name" required></label>
+      <label>رقم الموبايل<input name="phone" type="tel" inputmode="numeric" placeholder="01XXXXXXXXX" required></label>
+      <label>المحافظة<input name="city" required></label>
+      <label>العنوان بالتفصيل<textarea name="address" rows="2" required></textarea></label>
+      <label>الإيميل (اختياري، لتأكيد الطلب وتتبعه)<input name="email" type="email"></label>
+      <label>ملاحظات (اختياري)<textarea name="notes" rows="2"></textarea></label>
+      <p class="note" style="margin-top:.7rem">الدفع عند الاستلام.</p>
+      <button class="btn" style="width:100%;margin-top:.8rem" type="submit">تأكيد الطلب</button>
+      <div class="msg" id="msg" role="status"></div>
+    </form>
+  </div>
+</div>
+
+<div class="drawer" id="trk">
+  <div class="panel" role="dialog" aria-label="تتبع الطلب">
+    <button class="close" id="closeTrk" aria-label="إغلاق">×</button>
+    <h2>تتبّع طلبك</h2>
+    <label>رقم الطلب<input id="tid" placeholder="AT-1001" autocomplete="off"></label>
+    <label>رقم الموبايل<input id="tph" type="tel" inputmode="numeric" placeholder="01XXXXXXXXX"></label>
+    <button class="btn" id="tgo" style="width:100%;margin-top:.8rem">تتبّع</button>
+    <div id="tres" style="margin-top:1rem" role="status"></div>
+  </div>
+</div>
+
+<script>
+/* ====== إعدادات سهلة التعديل ====== */
+var CONFIG={
+  api:"https://script.google.com/macros/s/AKfycbxL1IhQerp3Pfm1OGelKKgDhvbiAOhEXWebRZslhaSaei0IBEdp8EFHdhzg81aeakDE3g/exec",
+  shipping:60, freeAbove:1500,   // لازم يطابقوا SHIP و FREE_OVER في كود Apps Script
+  ig:"#", tt:"#", fb:"#"         // لينكات حسابات أثير
+};
+/* القطع: الاسم والمقاسات هنا، والسعر والمخزون بيتقروا من شيت Products
+   كود كل مقاس في الشيت لازم يكون: كود القطعة-المقاس (مثال: AT101-M) */
+var CATALOG=[
+  {id:"AT101",c:"casual",n:"تيشيرت أوفر سايز قطن",col:"#C9A79B",s:["S","M","L","XL"]},
+  {id:"AT102",c:"casual",n:"بنطلون واسع كريب",col:"#B98F86",s:["S","M","L","XL"]},
+  {id:"AT103",c:"casual",n:"هودي مبطن",col:"#A9877A",s:["S","M","L","XL"]},
+  {id:"AT104",c:"casual",n:"جاكيت دنم",col:"#D4B5A6",s:["S","M","L","XL"]},
+  {id:"AT201",c:"abaya",n:"عباية كريب سادة",col:"#8C6A62",s:["52","54","56","58"]},
+  {id:"AT202",c:"abaya",n:"عباية مطرزة الأكمام",col:"#BE9288",s:["52","54","56","58"]},
+  {id:"AT203",c:"abaya",n:"عباية بشت مفتوحة",col:"#C8AD93",s:["52","54","56","58"]},
+  {id:"AT204",c:"abaya",n:"عباية كاجول بحزام",col:"#B7978A",s:["52","54","56","58"]}
+];
+var DB={},cart=[],filter="all",loaded=false;
+function $(i){return document.getElementById(i)}
+function money(n){return Number(n).toLocaleString("ar-EG")+" جنيه"}
+function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function skuOf(p,s){return p.id+"-"+s}
+function find(id){return CATALOG.filter(function(p){return p.id===id})[0]}
+function avail(p){return p.s.filter(function(s){return DB[skuOf(p,s)]})}
+
+function loadDB(){
+  return fetch(CONFIG.api).then(function(r){return r.json()}).then(function(d){DB=d||{};loaded=true;renderGrid();renderCart()})
+  .catch(function(){$("grid").innerHTML='<p class="note">تعذّر تحميل المنتجات الآن. حدّثي الصفحة بعد قليل.</p>'});
+}
+function renderGrid(){
+  var list=CATALOG.filter(function(p){return filter==="all"||p.c===filter});
+  $("grid").innerHTML=list.map(function(p){
+    var a=avail(p),ph='<div class="ph" style="background:'+p.col+'">أثير</div>';
+    if(!a.length)return '<div class="card">'+ph+'<div class="in"><h3>'+p.n+'</h3><div class="price">قريبًا</div><button class="btn" disabled style="opacity:.5">قريبًا</button></div></div>';
+    var d=DB[skuOf(p,a[0])];
+    var price=money(d.price)+(d.old>d.price?' <s style="color:#9a8680;font-weight:400">'+money(d.old)+'</s>':'');
+    var opts=a.map(function(s){var st=DB[skuOf(p,s)].stock;return '<option value="'+s+'"'+(st<=0?' disabled':'')+'>'+s+(st<=0?' — نفدت':'')+'</option>'}).join("");
+    var out=a.every(function(s){return DB[skuOf(p,s)].stock<=0});
+    return '<div class="card">'+ph+'<div class="in"><h3>'+p.n+'</h3><div class="price">'+price+'</div>'+
+      '<select id="sz'+p.id+'" aria-label="المقاس">'+opts+'</select>'+
+      (out?'<button class="btn" disabled style="opacity:.5">نفدت الكمية</button>':'<button class="btn" onclick="add(\''+p.id+'\')">أضيفي للسلة</button>')+'</div></div>';
+  }).join("");
+}
+function add(id){
+  var p=find(id),s=$("sz"+id).value,k=skuOf(p,s),d=DB[k];
+  if(!d||d.stock<=0)return;
+  var f=cart.filter(function(x){return x.sku===k})[0];
+  if((f?f.q:0)+1>d.stock){alert("الكمية المتاحة من هذا المقاس: "+d.stock);return}
+  if(f){f.q++}else{cart.push({sku:k,n:p.n,size:s,p:d.price,q:1})}
+  renderCart();$("drawer").classList.add("open");
+}
+function rm(i){cart.splice(i,1);renderCart()}
+function totals(){
+  var sub=cart.reduce(function(a,x){return a+x.p*x.q},0);
+  var ship=sub===0?0:(sub>=CONFIG.freeAbove?0:CONFIG.shipping);
+  return {sub:sub,ship:ship};
+}
+function renderCart(){
+  var t=totals(),n=cart.reduce(function(a,x){return a+x.q},0);
+  $("count").textContent=n;
+  $("items").innerHTML=cart.length?cart.map(function(x,i){return '<div class="row"><span>'+esc(x.n)+' — '+esc(x.size)+' × '+x.q+'</span><span>'+money(x.p*x.q)+' <button onclick="rm('+i+')" aria-label="حذف">حذف</button></span></div>'}).join(""):'<p class="note" style="padding:.8rem 0">السلة فاضية. اختاري قطعة وأضيفيها.</p>';
+  $("sub").textContent=money(t.sub);$("ship").textContent=t.ship?money(t.ship):"مجاني";$("total").textContent=money(t.sub+t.ship);
+  $("freeNote").textContent=t.sub>0&&t.ship?"أضيفي "+money(CONFIG.freeAbove-t.sub)+" كمان واحصلي على شحن مجاني.":"";
+}
+$("tabs").addEventListener("click",function(e){
+  var b=e.target.closest("button");if(!b||b.disabled)return;
+  filter=b.dataset.c;[].forEach.call($("tabs").children,function(x){x.classList.toggle("on",x===b)});renderGrid();
+});
+$("openCart").onclick=function(){$("drawer").classList.add("open")};
+$("closeCart").onclick=function(){$("drawer").classList.remove("open")};
+$("drawer").addEventListener("click",function(e){if(e.target===this)this.classList.remove("open")});
+$("ig").href=CONFIG.ig;$("tt").href=CONFIG.tt;$("fb").href=CONFIG.fb;
+
+var ERR={out_of_stock:"عذرًا، إحدى القطع نفدت. حدّثي الصفحة وجرّبي تاني.",bad_phone:"رقم الموبايل غير صحيح. اكتبيه بصيغة 01XXXXXXXXX.",missing_data:"من فضلك املي كل البيانات المطلوبة.",unknown_sku:"إحدى القطع غير متاحة حاليًا.",sheet_full:"حصلت مشكلة مؤقتة. جرّبي بعد شوية."};
+$("order").addEventListener("submit",function(e){
+  e.preventDefault();var m=$("msg"),f=this.elements,btn=this.querySelector("button[type=submit]");m.className="msg";
+  if(!cart.length){m.className="msg err";m.textContent="السلة فاضية، أضيفي قطعة الأول.";return}
+  var phone=f["phone"].value.replace(/\D/g,"");
+  if(!/^01[0125]\d{8}$/.test(phone)){m.className="msg err";m.textContent=ERR.bad_phone;return}
+  var notes="الدفع عند الاستلام"+(f["notes"].value?" | "+f["notes"].value:"");
+  var payload={name:f["name"].value,phone:phone,city:f["city"].value,address:f["address"].value,notes:notes,email:f["email"].value,
+    items:cart.map(function(x){return {sku:x.sku,qty:x.q}})};
+  btn.disabled=true;
+  fetch(CONFIG.api,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)})
+  .then(function(r){return r.json()})
+  .then(function(r){
+    if(!r.ok){m.className="msg err";m.textContent=ERR[r.error]||"حصلت مشكلة، جرّبي تاني.";if(r.error==="out_of_stock")loadDB();return}
+    cart=[];renderCart();$("order").reset();loadDB();
+    m.className="msg ok";m.textContent="وصلنا طلبك! رقم طلبك: "+r.orderId+(r.emailed?" وبعتنالك إيميل تأكيد.":". احتفظي بالرقم لتتبع الطلب.");
+  })
+  .catch(function(){m.className="msg err";m.textContent="تعذّر إرسال الطلب. تأكدي من الاتصال وجرّبي تاني."})
+  .then(function(){btn.disabled=false});
+});
+
+/* ---- تتبع الطلب ---- */
+var STEPS=["جديد","تم التأكيد","تم الشحن","تم التوصيل"];
+function openTrack(id){$("trk").classList.add("open");if(id)$("tid").value=id;$("tres").innerHTML=""}
+$("trkLink").onclick=function(e){e.preventDefault();openTrack()};
+$("closeTrk").onclick=function(){$("trk").classList.remove("open")};
+$("trk").addEventListener("click",function(e){if(e.target===this)this.classList.remove("open")});
+$("tgo").onclick=function(){
+  var id=$("tid").value.trim().toUpperCase(),ph=$("tph").value.replace(/\D/g,""),out=$("tres");
+  if(!id||!ph){out.innerHTML='<div class="msg err" style="display:block">اكتبي رقم الطلب ورقم الموبايل.</div>';return}
+  out.textContent="جاري البحث...";
+  fetch(CONFIG.api+"?track="+encodeURIComponent(id)+"&phone="+encodeURIComponent(ph)).then(function(r){return r.json()}).then(function(r){
+    if(!r.ok){out.innerHTML='<div class="msg err" style="display:block">مفيش طلب بالبيانات دي. اتأكدي من الرقم.</div>';return}
+    var idx=STEPS.indexOf(r.status),h='<p><b>طلب '+esc(r.orderId)+'</b>'+(r.date?' — '+esc(r.date):'')+'</p>';
+    if(r.status==="ملغي"){h+='<div class="msg err" style="display:block">تم إلغاء هذا الطلب.</div>'}
+    else{h+='<ul class="steps">'+STEPS.map(function(s,i){return '<li class="'+(i<idx?'done':i===idx?'now':'')+'">'+s+'</li>'}).join("")+'</ul>'}
+    h+='<p>'+r.items.map(function(i){return esc(i.name)+' × '+i.qty}).join('<br>')+'</p>';
+    if(r.carrier||r.trackNo)h+='<p>'+(r.carrier?'شركة الشحن: <b>'+esc(r.carrier)+'</b><br>':'')+(r.trackNo?'رقم الشحنة: <b>'+esc(r.trackNo)+'</b>':'')+'</p>';
+    if(r.trackUrl&&/^https?:\/\//.test(r.trackUrl))h+='<p><a href="'+esc(r.trackUrl)+'" target="_blank" rel="noopener" style="text-decoration:underline">تتبّع عند شركة الشحن</a></p>';
+    out.innerHTML=h;
+  }).catch(function(){out.innerHTML='<div class="msg err" style="display:block">تعذّر الاتصال. جرّبي بعد شوية.</div>'});
+};
+var q=new URLSearchParams(location.search).get("track");
+if(q)openTrack(q.toUpperCase());
+
+$("grid").innerHTML='<p class="note">جاري تحميل القطع...</p>';
+renderCart();loadDB();
+</script>
+</body>
+</html>
